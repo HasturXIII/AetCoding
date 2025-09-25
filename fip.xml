@@ -147,7 +147,19 @@ end
       elseif snd.checksomeAffs("right_arm_dislocated") then
       string = "onslaught "..snd.target.." bully left bully left"
       end
-      
+
+	if snd.checksomeAffs("left_arm_broken") and not snd.checksomeAffs("left_leg_broken") then
+      string = "invoke bedevil "..snd.target.." reverse"
+      elseif snd.checksomeAffs("right_arm_broken") and not snd.checksomeAffs("right_leg_broken") then
+      string = "invoke bedevil "..snd.target
+      elseif snd.checksomeAffs("right_leg_broken") and not snd.checksomeAffs("left_leg_broken") then
+      string = "invoke bedevil "..snd.target
+      elseif snd.checksomeAffs("left_leg_broken") and not snd.checksomeAffs("right_leg_broken") then
+      string = "invoke bedevil "..snd.target.." reverse"
+      end
+
+
+				
       if snd.checksomeAffs({"left_arm_amputated", "right_arm_amputated"}, 2) then
   string = "onslaught " .. snd.target .. " clobber headstomp"
   end
